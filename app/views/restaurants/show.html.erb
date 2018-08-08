@@ -1,0 +1,25 @@
+<div class="wrapper">
+
+  <h3><%= @restaurant.name %></h3>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
+
+  <%= link_to 'Write a review', new_restaurant_review_path(@restaurant), :class => "link real-link"%>
+
+
+  <h3>Reviews</h3>
+  <% @reviews.each do |review| %>
+    <div class="center">
+      <p><%= review.content %></p>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    </div>
+
+  <% end %>
+
+  <%= link_to 'Back', restaurants_path, :class => "link real-link"%>
+
+</div>
+

@@ -1,0 +1,15 @@
+<div class="wrapper">
+
+  <%= simple_form_for [@restaurant] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+    <%= f.submit "add a restaurant", class: "btn btn-primary" %>
+  <% end %>
+
+
+  <%= link_to 'Back', restaurants_path, :class => "link real-link"%>
+
+
+</div>

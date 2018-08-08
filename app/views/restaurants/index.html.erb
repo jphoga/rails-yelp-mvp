@@ -1,0 +1,18 @@
+<div class="wrapper">
+
+  <h1>List of all restaurants</h1>
+
+  <%= link_to "Add new Restaurant", new_restaurant_path, :class => "link" %>
+
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant), :class => "link" do  %>
+      <h3><%= restaurant.name %></h3>
+    <% end %>
+    <p>Address: <%= restaurant.address %></p>
+    <p>Phone: <%= restaurant.phone_number %></p>
+    <p>Category: <%= restaurant.category %></p>
+  <% end %>
+
+
+</div>
+

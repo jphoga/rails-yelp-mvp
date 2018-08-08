@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'byebug'
+
+CAT_LIST = %w{chinese italian japanese french belgian}
+ADDRESS = %w{Dusseldorf Tokyo Milano Oslo NewYork}
+
+puts "Create 10 fake restaurants and reviews"
+10.times do
+  restaurant = Restaurant.new(
+    name: Faker::Restaurant.name,
+    address: ADDRESS.sample(1).join(""),
+    phone_number: "12345678++",
+    category: CAT_LIST.sample(1).join("")
+    )
+    restaurant.save!
+    review = Review.new(
+      content: Faker::Restaurant.review,
+      rating: rand(0..5),
+      restaurant: restaurant
+      )
+    review.save!
+end
+puts "Finished!"
+
+
