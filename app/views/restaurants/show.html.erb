@@ -1,25 +1,79 @@
 <div class="wrapper">
 
-  <h3><%= @restaurant.name %></h3>
-  <p><%= @restaurant.address %></p>
-  <p><%= @restaurant.phone_number %></p>
-  <p><%= @restaurant.category %></p>
+<div class="container">
 
-  <%= link_to 'Write a review', new_restaurant_review_path(@restaurant), :class => "link real-link"%>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1><%= @restaurant.name %></h1>
+    <% @average_rating.times do %>
+      <i class="fas fa-star yellow-star"></i>
+    <% end %>
+    <p><em>(Average rating)</em> </p>
+  </div>
+</div>
 
+<div class="title-card">
 
-  <h3>Reviews</h3>
-  <% @reviews.each do |review| %>
-    <div class="center">
-      <p><%= review.content %></p>
-      <% review.rating.times do %>
-        <i class="fas fa-star"></i>
-      <% end %>
+  <div class="row">
+
+    <div class="col-sm-3">
     </div>
 
-  <% end %>
+    <div class="col-sm-6">
 
-  <%= link_to 'Back', restaurants_path, :class => "link real-link"%>
+      <div class="inner-list">
+      <ul>
+        <li>
+          <p><em>Address:  </em></p><p><strong> <%= @restaurant.address %></strong></p>
+        </li>
+        <li>
+          <p><em>Phone:  </em><strong></p> <p> <%= @restaurant.phone_number %></strong> </p>
+        </li>
+        <li>
+        <p><em>Category:  </em><strong><p> <p><%= @restaurant.category.capitalize %></strong> </p>
+        </li>
+      </ul>
+      </div>
 
+      <h5> <%= link_to 'Write a review', new_restaurant_review_path(@restaurant), :class => "btn btn-danger link real-link"%></h5>
+
+        <%= link_to 'Back', restaurants_path, :class => "link"%>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="middle-card">
+  <div class="row">
+
+
+    <div class="col-sm-12">
+
+      <h2><strong>Reviews</strong> </h2>
+
+
+      <% @reviews.each do |review| %>
+        <div class="center blockquote">
+          <p class="text-block"><%= review.content %></p>
+        </div>
+        <div class="ratings">
+          <p><em>Rating</em> </p>
+          <% review.rating.times do %>
+              <i class="fas fa-star yellow-star"></i>
+          <% end %>
+        </div>
+      <% end %>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+</div>
 </div>
 

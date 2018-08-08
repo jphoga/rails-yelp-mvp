@@ -10,6 +10,9 @@ require 'byebug'
 CAT_LIST = %w{chinese italian japanese french belgian}
 ADDRESS = %w{Dusseldorf Tokyo Milano Oslo NewYork}
 
+Restaurant.destroy_all if Rails.env.development?
+Review.destroy_all if Rails.env.development?
+
 puts "Create 10 fake restaurants and reviews"
 10.times do
   restaurant = Restaurant.new(

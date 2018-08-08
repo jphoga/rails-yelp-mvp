@@ -8,6 +8,18 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = Review.where(restaurant_id: @restaurant.id)
+
+    sum = 0
+    count = 0
+    @reviews.each do |review|
+      count += 1
+      sum += review.rating
+    end
+    if sum == 0
+      @average_rating = 0
+    else
+      @average_rating = sum / count
+    end
   end
 
   def new
@@ -31,3 +43,4 @@ class RestaurantsController < ApplicationController
   end
 
 end
+

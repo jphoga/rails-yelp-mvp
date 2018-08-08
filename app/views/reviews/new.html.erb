@@ -1,8 +1,32 @@
-<%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+      </div>
+      <div class="col-xs-6">
+        <h2>Enter your new review for</h2>
+        <h1><strong><%= @restaurant.name %></strong></h1>
 
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+        <div class="form-style">
 
-<%= link_to 'Back', restaurant_path(@restaurant), :class => "link real-link"%>
+          <div class="form-component">
+            <div id="text-right">
+            <%= simple_form_for [@restaurant, @review] do |f| %>
+              <%= f.input :content, label: "Tell us what you think" %>
+              <%= f.input :rating, label: "Your Rating", collection: ["0", "1", "2", "3", "4", "5"] %>
+            </div>
+            <%= f.submit "Submit your review", class: "btn btn-danger" %>
+          <% end %>
+          </div>
+            <%= link_to 'Back', restaurant_path(@restaurant), :class => "link real-link"%>
+
+          <div class="form-component">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

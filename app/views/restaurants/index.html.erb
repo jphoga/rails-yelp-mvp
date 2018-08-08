@@ -1,10 +1,39 @@
 <div class="wrapper">
 
-  <h1>List of all restaurants</h1>
+<div class="title">
+  <h2><strong><i>~A list of our wonderful restaurants~</i> </strong> </h2>
+  <h1><strong>Enjoy!</strong> </h1>
+</div>
 
-  <%= link_to "Add new Restaurant", new_restaurant_path, :class => "link" %>
+  <%= link_to "Add new Restaurant", new_restaurant_path, :class => "link btn btn-danger" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
 
   <% @restaurants.each do |restaurant| %>
+
+    <%= link_to restaurant_path(restaurant), :class => "link" do  %>
+
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/<%= %w{shanghai paris london berlin}.sample %>);'">
+      <div class="card-category"><h1><strong> <%= restaurant.name %></strong></h1> </div>
+      <div class="card-description">
+        <h2><%= restaurant.address %></h2>
+        <p><strong><%= restaurant.category.capitalize %></strong> </p>
+      </div>
+      <img class="card-user" src="https://fillmurray.com/g/300/300">
+    </div>
+
+    <% end %>
+  <% end %>
+
+      <!-- insert <div class="card"> -->
+  </div>
+</div>
+
+</div>
+
+<!--  <% @restaurants.each do |restaurant| %>
     <%= link_to restaurant_path(restaurant), :class => "link" do  %>
       <h3><%= restaurant.name %></h3>
     <% end %>
@@ -12,7 +41,4 @@
     <p>Phone: <%= restaurant.phone_number %></p>
     <p>Category: <%= restaurant.category %></p>
   <% end %>
-
-
-</div>
-
+-->

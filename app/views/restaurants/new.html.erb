@@ -1,15 +1,29 @@
-<div class="wrapper">
+<div class="new-wrapper">
 
-  <%= simple_form_for [@restaurant] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :phone_number %>
-    <%= f.input :category %>
-    <%= f.submit "add a restaurant", class: "btn btn-primary" %>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <div class="form-fields">
+      <%= simple_form_for [@restaurant] do |f| %>
+        <%= f.input :name, label: "Name of Restaurant" %>
+        <%= f.input :address %>
+        <%= f.input :phone_number %>
+        <%= f.input :category %>
+      </div>
+      <div class="button">
+        <%= f.submit "Add a restaurant", class: "btn btn-danger" %>
+      </div>
+      <% end %>
+      <div class="link">
+        <%= link_to 'Back', restaurants_path, :class => "link real-link"%>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  <%= link_to 'Back', restaurants_path, :class => "link real-link"%>
 
 
 </div>
